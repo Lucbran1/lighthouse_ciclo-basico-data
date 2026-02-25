@@ -39,21 +39,25 @@ custo = 600000
 lucro = faturamento - custo
 print (f"O lucro foi de R$ {lucro:,.2f} e o faturamento foi de R$ {faturamento:,.2f}")
 
-# exercicios
+# exercicios 
+
+nome = "joao paulo lira"
+email = "emailfalsodolira@gmail.com"
+
 # descubra o servidor do email 
-# descubra o primeiro nome do usuario 
+# descubra o primeiro nome do usuario   
+# criar uma mensagem persoanlizada usando o primeiro nome e dizendo que o email foi cadastrado com sucesso
 
-# exemplos de resolução abaixo
-email = "EMAIL_FALSO@gmail.com"
-email = email.lower().strip()
+# Exercicio 1: Descobrir o servidor do email (apenas o nome, não o dominio completo)
+posicao_arroba = email.find("@")
+posicao_ponto = email.find(".", posicao_arroba)
+servidor = email[posicao_arroba+1:posicao_ponto]
+print(f"Servidor: {servidor}")
 
-# servidor é o texto entre '@' e o primeiro '.' após ele
-start = email.find("@") + 1
-end = email.find(".", start)
-servidor = email[start:end]
-print("Servidor do email:", servidor)
+# Exercicio 2: Descobrir o primeiro nome do usuario
+primeiro_nome = nome[:nome.find(" ")] # pegar o texto até o primeiro espaço
+print(f"Primeiro nome: {primeiro_nome}")
 
-# usuário vem antes do '@'; o primeiro nome é a parte antes de qualquer separador
-usuario = email[:email.find("@")]
-primeiro_nome = usuario.split(".")[0].split("_")[0]
-print("Primeiro nome do usuario:", primeiro_nome)
+# Exercicio 3: Criar uma mensagem personalizada
+mensagem = f"Olá {primeiro_nome}, seu email {email} foi cadastrado com sucesso no servidor {servidor}"
+print(f"Mensagem: {mensagem}")
